@@ -1,6 +1,6 @@
 [project]
 name = "opdroid"
-version = "1.0"
+version = "1.0.1"
 description = "Android device control through MCP and a deterministic CLI"
 readme = "README.md"
 license = { file = "LICENSE" }

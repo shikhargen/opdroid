@@ -19,6 +19,13 @@ agent.
 pip install opdroid
 ```
 
+You can also run it without installing into the current environment:
+
+```bash
+uvx opdroid --help
+uvx opdroid devices
+```
+
 For local development:
 
 ```bash
@@ -34,10 +41,17 @@ Run the MCP server over stdio:
 opdroid mcp
 ```
 
+Run it directly from PyPI with `uvx`:
+
+```bash
+uvx opdroid mcp
+```
+
 Target a specific device:
 
 ```bash
 opdroid mcp --serial emulator-5554
+uvx opdroid mcp --serial emulator-5554
 ```
 
 Print a ready-to-copy MCP config snippet:
@@ -57,6 +71,28 @@ Example config:
     }
   }
 }
+```
+
+Alternative config that runs through `uvx` without a prior install:
+
+```json
+{
+  "mcpServers": {
+    "opdroid": {
+      "command": "uvx",
+      "args": ["opdroid", "mcp"]
+    }
+  }
+}
+```
+
+Project-local Codex config example in `.codex/config.toml`:
+
+```toml
+[mcp_servers.opdroid]
+command = "uvx"
+args = ["opdroid", "mcp"]
+enabled = true
 ```
 
 ## Agent Skill
