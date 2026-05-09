@@ -16,7 +16,7 @@ agent.
 ## Installation
 
 ```bash
-pip install opdroid
+uv add opdroid
 ```
 
 You can also run it without installing into the current environment:
