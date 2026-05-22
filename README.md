@@ -33,6 +33,22 @@ uv sync
 uv run opdroid --help
 ```
 
+## Agent Skill
+
+`opdroid` is built to be **skill-native** according to the [agentskills.io](https://agentskills.io) open standard. You can install it directly into your AI coding assistant (like Claude Code or Cursor) using the Vercel Skills CLI:
+
+```bash
+npx skills add shikhargen/opdroid
+```
+
+Alternatively, you can print the recommended skill instructions for manually pasting or configuring other agents using the CLI:
+
+```bash
+opdroid skill
+```
+
+The MCP server also exposes this through the `get_android_use_skill` tool.
+
 ## MCP Server
 
 Run the MCP server over stdio:
@@ -94,16 +110,6 @@ command = "uvx"
 args = ["opdroid", "mcp"]
 enabled = true
 ```
-
-## Agent Skill
-
-Print the recommended skill text for another agent:
-
-```bash
-opdroid skill
-```
-
-The MCP server also exposes this through `get_android_use_skill`.
 
 ## CLI
 

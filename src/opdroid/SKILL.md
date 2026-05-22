@@ -1,9 +1,4 @@
-"""Skill text for agents that use opdroid through MCP."""
-
-import importlib.resources
-
-# Hardcoded fallback to match SKILL.md exactly
-ANDROID_USE_SKILL = """---
+---
 name: opdroid
 description: Inspect and operate a connected Android device or emulator. Use this skill when you need to view the screen, tap buttons, swipe, type text, or press navigation keys on a connected Android device.
 ---
@@ -19,7 +14,7 @@ Before using this skill:
 
 ## How to Run Commands
 
-You can run `opdroid` commands using the `opdroid` command-line utility. If it is not installed in the active environment, run it on-demand via `uvx`:
+ You can run `opdroid` commands using the `opdroid` command-line utility. If it is not installed in the active environment, run it on-demand via `uvx`:
 
 ```bash
 uvx opdroid <command>
@@ -120,14 +115,3 @@ Lists the serial numbers of all connected Android devices/emulators.
 *   **Handle Uncertain States**: If you are unsure what is on the screen or if an action succeeded, run the `screen` command to refresh your view.
 *   **Focus Before Typing**: Always tap an input field first to ensure focus before calling `input-text`.
 *   **Hide Keyboard**: If the virtual keyboard obscures part of the screen, run `uvx opdroid press back` to dismiss it.
-"""
-
-
-def get_android_use_skill() -> str:
-    """Return the recommended skill text for agents using opdroid."""
-    try:
-        ref = importlib.resources.files("opdroid") / "SKILL.md"
-        return ref.read_text(encoding="utf-8")
-    except Exception:
-        return ANDROID_USE_SKILL
-
