@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import json
 import time
+from importlib.metadata import version as package_version
 from pathlib import Path
 from typing import Optional
 
@@ -11,7 +12,6 @@ import typer
 from rich.console import Console
 from rich.table import Table
 
-from opdroid import __version__
 from opdroid.client import AndroidController, list_connected_devices
 from opdroid.grid import overlay_grid
 from opdroid.mcp_server import main as run_mcp_server
@@ -42,7 +42,7 @@ def main(
 ) -> None:
     """Android device control through MCP and deterministic CLI commands."""
     if version:
-        typer.echo(f"opdroid {__version__}")
+        typer.echo(f"opdroid {package_version('opdroid')}")
         raise typer.Exit()
 
 
